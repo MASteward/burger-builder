@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
 import './App.css';
+import { Route, Switch } from "react-router-dom";
 import Layout from './hoc/Layout';
-import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
+import BurgerBuilder from './containers/BurgerBuilder';
+import Checkout from "./containers/Checkout";
+import Orders from "./containers/Orders";
+
+
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <Layout>
-          <BurgerBuilder />
+          <Switch>
+            <Route path="/checkout" component={ Checkout } />
+            <Route path="/orders" component={ Orders } />
+            <Route path="/" exact component={ BurgerBuilder } />
+          </Switch>
         </Layout>
       </div>
     );
